@@ -1,0 +1,134 @@
+{% extends 'tour/layouts/main.html' %}
+
+{% block title %}Event Horizon{% endblock title %}
+
+{% block content %}
+
+{% include 'tour/inc/slider.html' %}
+    <div class="container" style="margin-top:30px">
+        <div class="row">
+            <main class="px-3">
+                <h1>Event Horizon</h1>
+                <p class="lead">Welcome to Event Horizon - Your One-Stop Solution for Event Planning and Management
+We understand that organizing an event can be stressful and time-consuming. That's why we've created <b>Event Horizon</b>, a powerful yet user-friendly platform that simplifies the event planning and management process.
+Whether you're planning a <b>wedding, business meeting, conference, sports event, or any other type of event</b>, we have you covered. Our platform offers a range of features that cater to the needs of event planners, managers, and owners. With <b>Event Horizon</b>, you can:</p>
+                    <ul class="lead">
+                        <li>Create and manage events with ease</li>
+                        <li>Track registrations and attendees</li>
+                        <li>Advertise your events to a wider audience</li>
+                        <li>Accept online payments securely</li>
+                        <li>Communicate with your team and customers</li>
+                        <li>And much more!</li>
+                    </ul>
+                <p class="lead">We understand that every event is unique, which is why we offer a range of customization options to suit your needs. Our team of experts is always available to provide personalized support and guidance, ensuring that your event is a success.
+                    At <b>Event Horizon</b>, we're committed to making event planning and management stress-free and enjoyable. Sign up today and experience the difference!<a href="{% url 'register' %}"> sign up here</a></p>
+              </main>
+
+
+              <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for event in promoted_events %}
+                  {% if forloop.counter|add:1|divisibleby:5 %}
+                  <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                      <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Featured Post</strong>
+                        <h3 class="mb-0">{{ event.name }}</h3>
+                        <div class="mb-1 text-muted">{{ event.event_datetime |date:'Y-m-d' }}</div>
+                        <p class="lead card-text mb-auto text-break">{{ event.description|truncatechars:200 }}</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'eventdetail' event.name %}" class="stretched-link">Continue reading</a>
+                        {% else %}
+                        <p>Please <a href="{% url 'login' %}?next={{ request.path }}">login</a> to view the details of this event.</p>
+                        {% endif %}
+                    
+                      </div>
+                      <div class="col-auto d-none d-lg-block">
+                        <img src="{{ event.image.url }}" alt="{{ event.name }}" class="bd-placeholder-img" width="200" height="250">
+                      </div>
+                    </div>
+                  </div>
+                  {% else %}
+                  <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                      <div class="col-auto d-none d-lg-block">
+                        <img src="{{ event.image.url }}" alt="{{ event.name }}" class="bd-placeholder-img" width="200" height="250">
+                      </div>
+                      <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Featured Post</strong>
+                        <h3 class="mb-0">{{ event.name }}</h3>
+                        <div class="mb-1 text-muted">{{ event.event_datetime |date:'Y-m-d' }}</div>
+                        <p class="lead card-text mb-auto text-break">{{ event.description|truncatechars:200 }}</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'eventdetail' event.name %}" class="stretched-link">Continue reading</a>
+                        {% else %}
+                        <p>Please <a href="{% url 'login' %}?next={{ request.path }}">login</a> to view the details of this event.</p>
+                        {% endif %}
+                    
+                      </div>
+                    </div>
+                  </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <div class="text-center">
+                <a href="{% url 'eventlist' %}">View more events</a>
+              </div>
+              
+
+
+              {% load static %}            
+              <div class="container marketing">
+
+            
+            
+                <!-- START THE FEATURETTES -->
+            
+                <hr class="featurette-divider">
+            
+                <div class="row featurette">
+                  <div class="col-md-7">
+                      <h2 class="featurette-heading">Welcome to our Event Management Platform</h2>
+                      <p class="lead">Event management is a complex and multifaceted field that requires careful planning, coordination, and execution to ensure a successful event. At our company, we specialize in managing events in the tourism and hospitality industry, providing a wide range of services that cater to the specific needs of each client. From weddings and business meetings to conferences, sport and recreation events, courses, promotional events, celebration dinners, and fundraisers, we have the expertise and experience to deliver exceptional results every time.Our platform provides a comprehensive suite of modules for event managers, customers, and administrators, with sub-modules for registration, event planning, advertisement, booking, and payment. This enables us to streamline the entire event management process, from initial planning and organization to promotion, ticketing, and payment processing. By leveraging the latest technology and software tools, we are able to provide our clients with an efficient and cost-effective solution that saves time, reduces costs, and enhances the overall event experience.
+                      </p>
+                      </div>
+                  <div class="col-md-5">
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'images/1.jpg' %}" alt="Event Planning">                  </div>
+              </div>
+
+            
+              <hr class="featurette-divider">
+            
+              <div class="row featurette">
+                  <div class="col-md-7 order-md-2">
+                      <h2 class="featurette-heading">Event Planning Made Easy</h2>
+                      <p class="lead">Our platform allows you to easily plan your event by providing parameters such as event schedule, venue, budget, crowd size, and safety checks. With our intuitive interface, you can plan your event efficiently and effectively.</p>
+                  </div>
+                  <div class="col-md-5 order-md-1">
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'images/2.jpg' %}" alt="Placeholder: 500x500">
+                  </div>
+              </div>
+            
+              <hr class="featurette-divider">
+            
+              <div class="row featurette">
+                  <div class="col-md-7">
+                      <h2 class="featurette-heading">Make Your Event a Success</h2>
+                      <p class="lead">Our team of experienced event planners and managers are dedicated to making your event a success. Whether you're hosting a wedding, business meeting, or fundraiser, we have the expertise to ensure your event runs smoothly from start to finish.</p>
+                  </div>
+                  <div class="col-md-5">
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'images/3.jpg' %}" alt="Placeholder: 500x500">                  </div>
+              </div>
+                      
+              <hr class="featurette-divider">
+                      
+          </div>
+
+
+  </div>
+    </div>
+  
+
+{% endblock content %}
+
+
+

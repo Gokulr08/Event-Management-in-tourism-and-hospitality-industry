@@ -1,0 +1,34 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="py-4" href="#" aria-label="Product">
+      <a class="navbar-brand" href="{% url 'home' %}"> Event Horizon</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+          {% if request.user.is_authenticated %}
+              <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      {{ request.user.get_full_name }}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                  </ul>
+              </div>
+          {% else %}
+              <a class="nav-link" href="{% url 'login' %}#service">Login</a>
+          {% endif %}
+          <a class="nav-link" href="{% url 'eventlist' %}">Events</a>
+          <a class="nav-link" href="{% url 'service' %}">Services</a>
+          <a class="nav-link" href="{% url 'aboutus' %}">About us</a>
+          <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
+      </div>
+  </div>
+  
+  </div>
+</nav>

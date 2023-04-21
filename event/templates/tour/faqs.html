@@ -1,0 +1,74 @@
+{% extends 'tour/layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>FAQs</h1>
+    <hr>
+    <h3>General Questions</h3>
+    <div class="accordion mt-3" id="generalAccordion">
+      <div class="card">
+        <div class="card-header" id="generalQuestionOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseGeneralOne" aria-expanded="true" aria-controls="collapseGeneralOne">
+              What is your cancellation policy?
+            </button>
+          </h5>
+        </div>
+  
+        <div id="collapseGeneralOne" class="collapse show" aria-labelledby="generalQuestionOne" data-parent="#generalAccordion">
+          <div class="card-body">
+            Our cancellation policy varies depending on the event and location. Please refer to the event details for specific information.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="generalQuestionTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseGeneralTwo" aria-expanded="false" aria-controls="collapseGeneralTwo">
+              Do you offer refunds?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseGeneralTwo" class="collapse" aria-labelledby="generalQuestionTwo" data-parent="#generalAccordion">
+          <div class="card-body">
+            We offer refunds on a case-by-case basis. Please contact us directly if you would like to discuss a refund.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h3 class="mt-5">Event-Specific Questions</h3>
+    <div class="accordion mt-3" id="eventAccordion">
+      <div class="card">
+        <div class="card-header" id="eventQuestionOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseEventOne" aria-expanded="true" aria-controls="collapseEventOne">
+              What should I wear to this event?
+            </button>
+          </h5>
+        </div>
+  
+        <div id="collapseEventOne" class="collapse show" aria-labelledby="eventQuestionOne" data-parent="#eventAccordion">
+          <div class="card-body">
+            Dress code varies depending on the event. Please refer to the event details for specific information.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="eventQuestionTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEventTwo" aria-expanded="false" aria-controls="collapseEventTwo">
+              Can I bring a guest to this event?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseEventTwo" class="collapse" aria-labelledby="eventQuestionTwo" data-parent="#eventAccordion">
+          <div class="card-body">
+            It depends on the event and location. Please refer to the event details for specific information.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'tour/layouts/main.html' %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">Profile</h4>
+        </div>
+        <div class="card-body">
+          {% if full_name %}
+            <p><strong>Full Name:</strong> {{ full_name }}</p>
+          {% endif %}
+          {% if phone_number %}
+            <p><strong>Phone Number:</strong> {{ phone_number }}</p>
+          {% endif %}
+          {% if phone_number %}
+            <p><strong>Email:</strong> {{ email }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'tour/layouts/main.html' %}
+
+{% block title %}Event Registration Successful | Event Horizon{% endblock title %}
+
+{% block content %}
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-light mb-3">
+        <div class="card-body">
+          <h2 class="card-title">Registration Successful!</h2>
+          <p class="card-text">Thank you for registering for "{{ registration.event.name }}"</p>
+          <p class="card-text">Registration details:</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Name:</strong> {{ registration.user.full_name }}</li>
+            <li class="list-group-item"><strong>Email:</strong> {{ registration.user.email }}</li>
+            <li class="list-group-item"><strong>Phone Number:</strong> {{ registration.user.phone_number }}</li>
+            <li class="list-group-item"><strong>Ticket Quantity:</strong> {{ registration.ticket_quantity }}</li>
+            <li class="list-group-item"><strong>Total Amount:</strong> ₹{{ registration.total_amount }}</li>
+          </ul>
+          <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
