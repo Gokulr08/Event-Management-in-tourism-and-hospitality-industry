@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
-import razorpay
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,19 +79,24 @@ WSGI_APPLICATION = "event_manage.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+import pymysql
+pymysql.version_info = (1, 4, 6, 'final', 0)  # adjust according to your PyMySQL version
+pymysql.install_as_MySQLdb()
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": 'myevent',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': '',
-        'PORT':'3306',
+        'PASSWORD': 'gokul2002',
+        'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
     }
 }
+
 
 
 # Password validation
@@ -143,12 +147,7 @@ STATICFILES_DIRS=[
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com' # or your SMTP email provider
-EMAIL_PORT = 587 # or the port number used by your email provider
-EMAIL_USE_TLS = True # or False depending on your email provider's configuration
-EMAIL_HOST_USER = 'gokul08r@gmail.com' # or your email provider's username
-EMAIL_HOST_PASSWORD = 'qixmssmyweagoftf' # your app password created from your email provider
+
 
 AUTH_USER_MODEL = 'event.CustomUser'
 AUTHENTICATION_BACKENDS = [    'django.contrib.auth.backends.ModelBackend',    'event.backends.EmailBackend',]

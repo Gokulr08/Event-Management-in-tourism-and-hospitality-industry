@@ -96,14 +96,14 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
-class Eventt(models.Model):
+class Eventt(models.Model): ##event_details
     title = models.CharField(max_length=255)
     description = models.TextField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=False, null=False)
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE)
     date = models.DateTimeField()
     max_attendees = models.PositiveIntegerField()
-    cost_per_person = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=False)
+    cost_per_person = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     message = models.TextField(blank=True)
 
     def __str__(self):
