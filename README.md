@@ -1,28 +1,18 @@
-# 🎉 EventXpert-Tourism-Hospitality 🏨
+# Event Management in Tourism and Hospitality Project
 
-EventXpert-Tourism-Hospitality is a web-based event management system developed using Python Django. It caters to the needs of the tourism and hospitality industry, allowing event planners, managers, and customers to collaborate and ensure successful events. The system utilizes HTML, CSS, Bootstrap, JavaScript, and MySQL for efficient event planning and management.
+During my final year, I wanted to stand out by doing a unique project. Most of my classmates were working on simple HTML pages, but I aimed to do something special. After some thought, I decided on an event management project in the tourism and hospitality industry. Organizing events is challenging and time-consuming, so I wanted to create a solution.
 
-## ✨ Features
+I'm a fan of Python, so I decided to go all-in on it. I researched ways to build an end-to-end webpage using Python and discovered Django, a framework that could help. I learned Django and MySQL to understand how websites connect to databases.
 
-- 🖥️ Easy-to-use interface for seamless event management.
-- 📋 Modules for Admin, Event Manager, and Customer.
-- 📦 Sub-modules including Registration, Event Planning, Payment, and Event Registration.
+## Project Highlights:
 
-## 🚀 Installation
+- Users can log in to view events on the homepage, including event type, venue location, and ticket prices.
+- If users want to join an event, they can easily book a ticket by providing their name, number, and quantity.
+- Instead of a payment API, I opted to display a payment success message using a simple form.
+- Users can also register their own events, like birthday parties or family reunions. Our team receives the information and contacts them via email for further details.
+- Beyond organizing events, I emphasized customer care because hospitality is essential.
 
-1. 📥 Clone the repository to your local machine.
-2. 🐍 Install Python and Django on your system.
-3. 🌐 Create a virtual environment and activate it.
-4. ⚙️ Install the required dependencies using pip.
-5. 🗄️ Set up the MySQL database and configure the connection in the settings.py file.
-6. 🚀 Run database migrations to create the necessary tables.
-7. 🌟 Start the Django development server and access the application in your browser.
+## Technologies Used:
 
-## 💡 Usage
-
-1. 🔑 Log in to the admin panel as an admin user.
-2. 👥 Create event managers and customers.
-3. 📅 Event managers can create and manage events, handle registrations, and process payments.
-4. 🎟️ Customers can register for events, make payments, and view event details.
-5. 🎨 Customize the system according to your requirements by modifying the templates and styles.
-
+- **Backend:** Python, Django, MySQL
+- **Frontend:** HTML, CSS, Bootstrap, JavaScript
